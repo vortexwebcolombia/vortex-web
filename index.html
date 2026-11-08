@@ -820,10 +820,10 @@ let LANG='es'; const T=x=>(LANG==='en'&&EN[x]!==undefined)?EN[x]:x;
       const btn=f.querySelector('button[type=submit]'), err=f.querySelector('#dxErr'); err.hidden=true; btn.disabled=true;
       const fd=new FormData(f); if(fd.get('bot-field')){ return; }
       const o={}; fd.forEach((v,k)=>{ if(k!=='form-name') o[k]=v; });
-      const req=fetch(CONFIG.formEndpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(o)}).then(x=>{ if(!x.ok) throw new Error(x.status); });
+      const req=fetch(CONFIG.formEndpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(o)}).then(async x=>{ if(!x.ok){ let m=''; try{ m=(await x.json()).error||''; }catch(e){} throw new Error(m||('HTTP '+x.status)); } });
       req
         .then(()=>{ done(f.elements.nombre.value.trim().split(' ')[0]); })
-        .catch(()=>{ err.hidden=false; btn.disabled=false; });
+        .catch(e=>{ err.textContent=T('No pudimos enviar tus datos. Intenta de nuevo en unos minutos.')+' ('+e.message+')'; err.hidden=false; btn.disabled=false; });
     });
   }
   function done(nombre){

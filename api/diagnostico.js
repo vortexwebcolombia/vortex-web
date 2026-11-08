@@ -8,6 +8,7 @@ const ROWS = [['nombre', 'Nombre'], ['wa', 'WhatsApp'], ['mail', 'Correo'], ['pu
   ['sector', 'Tipo de negocio'], ['web', '¿Tiene web?'], ['canales', 'Cómo lo encuentran'], ['reservas', 'Cómo reservan hoy'], ['objetivo', 'Objetivo'], ['inicio', 'Cuándo quiere su web']];
 
 module.exports = async (req, res) => {
+  if (req.method === 'GET') return res.status(200).json({ ok: true, resend_key_configurada: !!process.env.RESEND_API_KEY, to_email_configurado: !!process.env.TO_EMAIL, from_email_configurado: !!process.env.FROM_EMAIL });
   if (req.method !== 'POST') return res.status(405).json({ ok: false });
   let d = req.body;
   if (typeof d === 'string') { try { d = JSON.parse(d); } catch (e) { d = {}; } }
@@ -35,7 +36,7 @@ module.exports = async (req, res) => {
         html
       })
     });
-    if (!r.ok) return res.status(502).json({ ok: false });
+    if (!r.ok) { let m = ''; try { const j = await r.json(); m = j.message || j.name || ''; } catch (e) {} console.error('Resend error', r.status, m); return res.status(502).json({ ok: false, error: 'Resend ' + r.status + (m ? ': ' + m : '') }); }
     return res.status(200).json({ ok: true });
   } catch (e) { return res.status(502).json({ ok: false }); }
 };
