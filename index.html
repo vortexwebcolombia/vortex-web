@@ -463,6 +463,9 @@ body.loading .hero-logo,body.loading .hero-logo-wrap{animation-play-state:paused
 .lgm-body a{color:var(--accent);text-underline-offset:3px}
 mark.lph{background:#fff3a8;color:#14213a;padding:1px 6px;font-weight:600}
 @media(max-width:560px){.lgm-box{padding:30px 20px 36px}.lgm-x{margin:-16px -8px 0 0}}
+.wa-f{position:fixed;right:20px;bottom:20px;width:58px;height:58px;border-radius:50%;background:#25D366;display:grid;place-items:center;z-index:900;box-shadow:0 4px 14px rgba(10,20,45,.22);transition:transform .3s}
+.wa-f:hover{transform:scale(1.08)}.wa-f svg{width:32px;height:32px;fill:#fff}
+@media(max-width:560px){.wa-f{right:14px;bottom:14px;width:54px;height:54px}}
 </style>
 <noscript><style>#loader{display:none}body.loading{overflow:auto}</style></noscript>
 </head>
@@ -916,6 +919,8 @@ else if(i===0){h+='<i class="ly f" style="transform:translateZ('+z.toFixed(2)+'p
 else{var c='rgb('+lerp(38,72,t)+","+lerp(98,196,t)+","+lerp(172,205,t)+')';h+='<i class="ly" style="background:'+c+';transform:translateZ('+z.toFixed(2)+'px)"></i>'}}
 e.innerHTML=h}
 build();var w=innerWidth;addEventListener('resize',function(){if(innerWidth!==w){w=innerWidth;build()}})})();</script>
+<a class="wa-f" id="waF" href="https://wa.me/573026323344" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16.04 3C9.4 3 4 8.38 4 15.01c0 2.12.56 4.19 1.61 6.01L4 29l8.2-1.58a12.04 12.04 0 0 0 3.84.62C22.68 28.04 28 22.66 28 16.03 28 9.4 22.68 3 16.04 3zm0 21.99c-1.2 0-2.38-.2-3.5-.6l-.5-.18-4.87.94.97-4.74-.2-.5a9.97 9.97 0 0 1-1.6-5.4c0-5.5 4.5-9.97 10.03-9.97 5.54 0 10.03 4.47 10.03 9.97 0 5.5-4.5 9.48-10.36 10.48zm5.5-7.46c-.3-.15-1.78-.88-2.06-.98-.27-.1-.47-.15-.67.15-.2.3-.77.98-.94 1.18-.17.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.5-.9-.8-1.5-1.78-1.67-2.08-.17-.3-.02-.46.13-.6.14-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.47 1.07 2.88 1.22 3.08.15.2 2.1 3.2 5.08 4.49.7.3 1.26.48 1.7.62.72.23 1.37.2 1.88.12.57-.08 1.78-.73 2.03-1.43.25-.7.25-1.3.17-1.43-.07-.12-.27-.2-.57-.35z"/></svg></a>
+<script>(function(){var a=document.getElementById('waF');if(!a)return;function u(){var en=document.documentElement.lang==='en'||(typeof LANG!=='undefined'&&LANG==='en');a.href='https://wa.me/573026323344?text='+encodeURIComponent(en?'Hi Vortex Web, I would like more information about a website for my business.':'Hola Vortex Web, quiero información sobre una página web para mi negocio.')}u();a.addEventListener('click',u);a.addEventListener('mouseenter',u)})();</script>
 <div class="lgm" id="lgm" role="dialog" aria-modal="true"><div class="lgm-box"><button class="lgm-x" id="lgmX" aria-label="Cerrar">×</button><div class="lgm-body" id="lg-priv" hidden>
 <h3 class="lg-t">Política de Privacidad</h3>
 <p class="meta">Política de tratamiento de datos personales · Vigente desde el 8 de noviembre de 2026</p>
